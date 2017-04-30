@@ -14,10 +14,11 @@ class App extends Component {
 
   componentDidMount() {
 
-    fetch('http://localhost:8080/lesson/1', {
+    fetch('http://localhost:8080/lessons/1', {
     	method: 'get'
     }).then(function(response) {
-      const json = response.json();
+      return response.json();
+    }).then((json) => {
     	this.setState({
         id: json.id,
         name: json.name
@@ -28,7 +29,7 @@ class App extends Component {
         name: 'Name cannot be retrieved!'
       })
     });
-    
+
   }
 
   render() {
